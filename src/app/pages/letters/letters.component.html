@@ -1,0 +1,48 @@
+<p>lessonsBET</p>
+
+<table mat-table [dataSource]="dataLetters" matSort>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+    <mat-cell *matCellDef="let letter">{{letter.id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="letterp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Polish letter</mat-header-cell>
+    <mat-cell class="letters"
+              *matCellDef="let letter">{{letter.letterp}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="letterh">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Hebrew  letter</mat-header-cell>
+    <mat-cell class="letters"
+              *matCellDef="let letter">{{letter.letterh}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="letterh2">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Hebrew  letter 2</mat-header-cell>
+    <mat-cell class="letters"
+              *matCellDef="let letter">{{letter.letterh2}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nazwa">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Nazwa</mat-header-cell>
+    <mat-cell *matCellDef="let letter">{{letter.nazwa}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wartoscnumeryczna">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>wartoscnumeryczna</mat-header-cell>
+    <mat-cell *matCellDef="let letter">{{letter.wartoscnumeryczna}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="opis">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>opis</mat-header-cell>
+    <mat-cell class="letters"
+              *matCellDef="let letter">{{letter.opis}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</table>
+

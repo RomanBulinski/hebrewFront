@@ -1,0 +1,62 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body,
+html {
+  height: 100%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Montserrat", serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.3em;
+  display: grid;
+}
+
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.blackText {
+  color: black;
+}
+
+/*all of mat-form-field*/
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+}
+
+.mat-form-field{
+  font-size: 16px;
+}
+
+.textXL{
+  font-size: 24px;
+}
+
+.textM{
+  font-size: 16px;
+}
+
+.textS{
+  font-size: 12px;
+}
+
+
+
+
