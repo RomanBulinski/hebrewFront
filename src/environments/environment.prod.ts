@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://fronthebrew.herokuapp.com'
+  apiBaseUrl: 'https://hebrewbackend.herokuapp.com'
 };
