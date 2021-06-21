@@ -13,4 +13,5 @@ app.get('/*', (req, res) =>
 
 // Start the app by listening on the default
 // Heroku port
-app.listen("fronthebrew.herokuapp.com"  || 3000);
+app.listen(process.env.PORT || 3000);
+// app.listen("fronthebrew.herokuapp.com"  || 3000);
