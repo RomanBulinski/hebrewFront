@@ -11,7 +11,7 @@ app.get('/*', (req, res) =>
   res.sendFile("index.html", {root: "dist/Front/"})
 );
 
-// Start the app by listening on the default
+// Start the app by listening on the defaultd
 // Heroku port
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.port || 3000);
 // app.listen("fronthebrew.herokuapp.com"  || 3000);
