@@ -8,7 +8,7 @@ app.use(express.static(__dirname + "/dist/Front/"));
 
 
 app.get('/*', (req, res) =>
-  res.sendFile("index.html", {root: "dist/Front/"})
+  res.sendFile("index.html", {root: "src/"})
 );
 
 // Start the app by listening on the defaultd
