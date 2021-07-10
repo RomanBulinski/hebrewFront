@@ -5,6 +5,7 @@ import {LettersComponent} from './pages/letters/letters.component';
 import {LessonsComponent} from './pages/lessons/lessons.component';
 import {AddWordsComponent} from './pages/add-words/add-words.component';
 import {BasicComponent} from './pages/basic/basic.component';
+import {OrderatorComponent} from "./pages/orderator/orderator.component";
 
 const routes: Routes = [
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'letters', component: LettersComponent},
   {path: 'basic', component: BasicComponent},
   {path: 'lessons', component: LessonsComponent},
+  {path: 'orderator', component: OrderatorComponent},
   {path: 'add words', component: AddWordsComponent},
 ];
 
