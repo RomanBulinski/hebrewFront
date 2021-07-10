@@ -9,6 +9,11 @@
           (click)="chooseLesson('words')" >
     <mat-icon>{{words1}}</mat-icon>
   </button>
+  <button mat-raised-button color="primary"
+          aria-label="Example icon button with a plus one icon"
+          (click)="chooseLesson('sentences')" >
+    <mat-icon>{{sentences}}</mat-icon>
+  </button>
 </div>
 
 <app-element-comparator [elementForCompare]="elementForCompare"></app-element-comparator>

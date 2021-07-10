@@ -24,6 +24,9 @@ import {LessonsComponent} from './pages/lessons/lessons.component';
 import {MatListModule} from '@angular/material/list';
 import { AddWordsComponent } from './pages/add-words/add-words.component';
 import { BasicComponent } from './pages/basic/basic.component';
+import { ElementOrderatorComponent } from './common_components/element-orderator/element-orderator.component';
+import { OrderatorComponent } from './pages/orderator/orderator.component';
+import { NotificationComponent } from './common_components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { BasicComponent } from './pages/basic/basic.component';
     ElementComparatorComponent,
     AddWordsComponent,
     BasicComponent,
+    ElementOrderatorComponent,
+    OrderatorComponent,
+    NotificationComponent,
   ],
     imports: [
         BrowserModule,

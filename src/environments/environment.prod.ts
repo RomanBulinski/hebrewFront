@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  // apiBaseUrl: 'https://hebrewbackend.herokuapp.com'
+  apiBaseUrl: 'https://hebrewbackend.herokuapp.com'
 };

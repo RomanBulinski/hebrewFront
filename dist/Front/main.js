@@ -85,7 +85,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    apiBaseUrl: 'http://localhost:8080'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -111,7 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WordsHttpService", function() { return WordsHttpService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http.service */ "KWLZ");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 
@@ -120,22 +123,24 @@ class WordsHttpService extends _http_service__WEBPACK_IMPORTED_MODULE_1__["HttpS
     constructor(http) {
         super();
         this.http = http;
+        this.apiServerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiBaseUrl;
     }
     getAll() {
-        return this.http.get('http://localhost:8080/words');
+        return this.http.get(`${this.apiServerUrl}/words`);
+        // return this.http.get<Word[]>( 'http://localhost:8080/words' );
     }
     save(word) {
-        return this.http.post('http://localhost:8080/words', word);
+        return this.http.post('${apiServerUrl}/words', word);
     }
 }
-WordsHttpService.ɵfac = function WordsHttpService_Factory(t) { return new (t || WordsHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+WordsHttpService.ɵfac = function WordsHttpService_Factory(t) { return new (t || WordsHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
 WordsHttpService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: WordsHttpService, factory: WordsHttpService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](WordsHttpService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -167,6 +172,42 @@ HttpService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
 
 /***/ }),
 
+/***/ "L28Q":
+/*!************************************************************************************!*\
+  !*** ./src/app/common_components/element-orderator/element-orderator.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: ElementOrderatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElementOrderatorComponent", function() { return ElementOrderatorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class ElementOrderatorComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+ElementOrderatorComponent.ɵfac = function ElementOrderatorComponent_Factory(t) { return new (t || ElementOrderatorComponent)(); };
+ElementOrderatorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ElementOrderatorComponent, selectors: [["app-element-orderator"]], decls: 2, vars: 0, template: function ElementOrderatorComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "element-orderator works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbW1vbl9jb21wb25lbnRzL2VsZW1lbnQtb3JkZXJhdG9yL2VsZW1lbnQtb3JkZXJhdG9yLmNvbXBvbmVudC5jc3MifQ== */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ElementOrderatorComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-element-orderator',
+                templateUrl: './element-orderator.component.html',
+                styleUrls: ['./element-orderator.component.css']
+            }]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "MFmn":
 /*!************************************************!*\
   !*** ./src/app/pages/basic/basic.component.ts ***!
@@ -188,10 +229,10 @@ class BasicComponent {
 BasicComponent.ɵfac = function BasicComponent_Factory(t) { return new (t || BasicComponent)(); };
 BasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BasicComponent, selectors: [["app-basic"]], decls: 16, vars: 0, consts: [[1, "textM"]], template: function BasicComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "tak tak - ken ken");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "tak - ken");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "p", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "nie nie - lo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "nie - lo");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "p", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "dziekuj\u0119 - toda raba");
@@ -235,26 +276,29 @@ BasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DBInitHttpService", function() { return DBInitHttpService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 
 class DBInitHttpService {
     constructor(http) {
         this.http = http;
+        this.apiServerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiBaseUrl;
     }
     dataBaseInit() {
-        return this.http.get('http://localhost:8080/dataBase');
+        return this.http.get(`${this.apiServerUrl}/dataBase`);
     }
 }
-DBInitHttpService.ɵfac = function DBInitHttpService_Factory(t) { return new (t || DBInitHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
+DBInitHttpService.ɵfac = function DBInitHttpService_Factory(t) { return new (t || DBInitHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
 DBInitHttpService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: DBInitHttpService, factory: DBInitHttpService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DBInitHttpService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -565,6 +609,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/list */ "kEI4");
 /* harmony import */ var _pages_add_words_add_words_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/add-words/add-words.component */ "tKyU");
 /* harmony import */ var _pages_basic_basic_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/basic/basic.component */ "MFmn");
+/* harmony import */ var _common_components_element_orderator_element_orderator_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./common_components/element-orderator/element-orderator.component */ "L28Q");
+
 
 
 
@@ -627,7 +673,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _pages_letters_letters_component__WEBPACK_IMPORTED_MODULE_15__["LettersComponent"],
         _common_components_element_comparator_element_comparator_component__WEBPACK_IMPORTED_MODULE_19__["ElementComparatorComponent"],
         _pages_add_words_add_words_component__WEBPACK_IMPORTED_MODULE_22__["AddWordsComponent"],
-        _pages_basic_basic_component__WEBPACK_IMPORTED_MODULE_23__["BasicComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _pages_basic_basic_component__WEBPACK_IMPORTED_MODULE_23__["BasicComponent"],
+        _common_components_element_orderator_element_orderator_component__WEBPACK_IMPORTED_MODULE_24__["ElementOrderatorComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
@@ -663,6 +710,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _common_components_element_comparator_element_comparator_component__WEBPACK_IMPORTED_MODULE_19__["ElementComparatorComponent"],
                     _pages_add_words_add_words_component__WEBPACK_IMPORTED_MODULE_22__["AddWordsComponent"],
                     _pages_basic_basic_component__WEBPACK_IMPORTED_MODULE_23__["BasicComponent"],
+                    _common_components_element_orderator_element_orderator_component__WEBPACK_IMPORTED_MODULE_24__["ElementOrderatorComponent"],
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1093,7 +1141,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./http.service */ "KWLZ");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 
@@ -1103,22 +1153,23 @@ class LettersHttpService extends _http_service__WEBPACK_IMPORTED_MODULE_2__["Htt
     constructor(http) {
         super();
         this.http = http;
+        this.apiServerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiBaseUrl;
     }
     getAll() {
-        return this.http.get('http://localhost:8080/letters');
+        return this.http.get(`${this.apiServerUrl}/letters`);
     }
     save(letter) {
         return rxjs__WEBPACK_IMPORTED_MODULE_1__["EMPTY"];
     }
 }
-LettersHttpService.ɵfac = function LettersHttpService_Factory(t) { return new (t || LettersHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
+LettersHttpService.ɵfac = function LettersHttpService_Factory(t) { return new (t || LettersHttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); };
 LettersHttpService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: LettersHttpService, factory: LettersHttpService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LettersHttpService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),

@@ -17,13 +17,16 @@ export class LessonsComponent implements OnInit {
 
   letters = 'Letters';
   words1 = 'Words';
+  sentences = 'Sentences';
 
   elementForCompare: ElementForCompare;
   lettersForCompare: ElementForCompare;
   wordsForCompare: ElementForCompare;
+  sentencesForCompare: ElementForCompare;
 
   constructor(private lettersHttpService: LettersHttpService,
-              private wordsHttpService: WordsHttpService) {
+              private wordsHttpService: WordsHttpService,
+              private sentencesHttpService: WordsHttpService) {
 
     this.lettersForCompare = {
       firstIngredient: 'letterh',
@@ -37,17 +40,25 @@ export class LessonsComponent implements OnInit {
       httpService: this.wordsHttpService
     };
 
+    this.sentencesForCompare = {
+      firstIngredient: 'pronunciation',
+      secondIngredient: 'polish',
+      httpService: this.sentencesHttpService,
+    };
+
     this.elementForCompare = this.wordsForCompare;
   }
 
   ngOnInit(): void {
   }
 
-  chooseLesson(lesson: string): void {
+   chooseLesson(lesson: string): void {
     if (lesson === 'words') {
       this.elementForCompare = this.wordsForCompare;
     } else if (lesson === 'letters') {
       this.elementForCompare = this.lettersForCompare;
+    }else if (lesson === 'sentences') {
+      this.elementForCompare = this.sentencesForCompare;
     }
   }
 }
