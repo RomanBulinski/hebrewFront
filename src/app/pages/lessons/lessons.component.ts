@@ -3,6 +3,7 @@ import {LettersHttpService} from '../../httpServices/letters-http.service';
 import {FormGroup} from '@angular/forms';
 import {ElementForCompare} from '../../Model/element-for-compare';
 import {WordsHttpService} from '../../httpServices/words-http.service';
+import {SentencesHttpService} from '../../httpServices/sentences-http.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class LessonsComponent implements OnInit {
 
   constructor(private lettersHttpService: LettersHttpService,
               private wordsHttpService: WordsHttpService,
-              private sentencesHttpService: WordsHttpService) {
+              private sentencesHttpService: SentencesHttpService) {
 
     this.lettersForCompare = {
       firstIngredient: 'letterh',

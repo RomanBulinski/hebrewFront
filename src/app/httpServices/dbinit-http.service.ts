@@ -13,8 +13,8 @@ export class DBInitHttpService {
 
   constructor(private http: HttpClient) { }
 
-  public dataBaseInit(): Observable<any> {
-    return this.http.get<Word>( `${this.apiServerUrl}/dataBase` );
-  }
+  // public dataBaseInit(): Observable<any> {
+  //   return this.http.get<Word>( `${this.apiServerUrl}/dataBase` );
+  // }
 
 }
