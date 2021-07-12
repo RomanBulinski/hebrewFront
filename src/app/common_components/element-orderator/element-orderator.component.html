@@ -1,6 +1,9 @@
 
 Put words in proper order.
 
+<button mat-raised-button (click)="beforeElement()" color="primary">Poprzedni</button>
+<button mat-raised-button (click)="nextElement()" color="primary">Nastęny</button>
+
 <div cdkDropList
      cdkDropListOrientation="horizontal"
      class="example-list"
@@ -9,6 +12,6 @@ Put words in proper order.
 </div>
 
 <div fxLayout="row" fxLayoutGap="20px">
-  <button mat-raised-button (click)="setOutcom()" color="primary">Sprawdz</button>
+  <button mat-raised-button (click)="checkAndSetOutcom()" color="primary">Sprawdz</button>
   <div>{{outcom}}</div>
 </div>

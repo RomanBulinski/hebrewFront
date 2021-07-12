@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {ElementForCompare} from "../../Model/element-for-compare";
+import {SentencesHttpService} from "../../httpServices/sentences-http.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-element-orderator',
@@ -8,25 +11,36 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class ElementOrderatorComponent {
 
+  @Input('elementForOrder') elementForOrder: string[];
   outcom: string;
 
-  order = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5'
-  ];
+  order: string[];
+  timePeriods: string[];
+  position = 0;
 
-  timePeriods = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5'
-  ];
+  constructor(private sentencesHttpService: SentencesHttpService) {
+    this.loadELementForOrderExercices();
+  }
 
-  constructor() { }
+  private loadELementForOrderExercices() {
+    this.sentencesHttpService.getAll()
+      .pipe(
+        tap((elements) => {
+            this.order = elements[this.position].pronunciation.split(' ');
+            this.timePeriods = elements[this.position].pronunciation.split(' ');
+          },
+        )).subscribe();
+  }
+
+  nextElement(): void{
+    this.position++;
+    this.loadELementForOrderExercices();
+  }
+
+  beforeElement(): void {
+    this.position--;
+    this.loadELementForOrderExercices();
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.timePeriods, event.previousIndex, event.currentIndex);
@@ -45,7 +59,7 @@ export class ElementOrderatorComponent {
     return true;
   }
 
-  setOutcom(): void{
+  checkAndSetOutcom(): void{
     this.checkOrderForAllPosition() ? this.outcom = 'Dobrze' : this.outcom = 'Zle';
   }
 
